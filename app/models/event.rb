@@ -10,5 +10,4 @@ class Event < ApplicationRecord
   #   if end_at < start_at
   #     errors.add :end_at, "Must be after start date"
   #   end
-  end
 end
