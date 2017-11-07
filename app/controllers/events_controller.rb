@@ -3,22 +3,22 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @events = events_user.events
+    @event = event_user.events
   end
 
   def show;
-    @events = Event.find(params[:id])
+    @event = Event.find(params[:id])
   end
 
   def new
-    @events = current_user.events.build
+    @event = current_user.events.build
   end
 
   def create
-    @events = current_user.events.build(room_params)
+    @event = current_user.events.build(room_params)
 
-    if @events.save
-      redirect_to @events, notice: "Event saved!"
+    if @event.save
+      redirect_to @event, notice: "Event saved!"
     else
       render :new
     end
@@ -29,8 +29,8 @@ class EventsController < ApplicationController
   end
 
   def update
-    if @events.update(event_params)
-      redirect_to @events, notice: "Event updated!"
+    if @event.update(event_params)
+      redirect_to @event, notice: "Event updated!"
     else
       render :edit
     end
