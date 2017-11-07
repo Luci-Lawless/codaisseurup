@@ -1,20 +1,21 @@
+Event.destroy_all
 User.destroy_all
 
 #Users
 
 luci = User.create!(
-  email: 'luci@gmail3.com',
+  email: 'luci@gmail.com',
   password: '123456'
 )
 
 nina = User.create!(
-  email: 'nina@gmail3.com',
+  email: 'nina@gmail.com',
   password: '123456'
 )
 
 #Events
 
-event = Event.create!(
+events = Event.create!([{
   name: "MMA Event",
   description: "After previously contesting three events in Macau (a Special administrative region of China) since 2012, the event will mark the first that the promotion will hold on Mainland China.",
   location: "Shanghai, China",
@@ -25,8 +26,18 @@ event = Event.create!(
   starts_at: '2017-12-11',
   ends_at: '2017-12-14',
   active: true,
-  user_id: luci
-)
+  user: luci}, {
+  name: "Hellfest",
+  description: "Extreme metal festival.",
+  location: "Clisson, France",
+  price: 200,
+  capacity: 16_000,
+  includes_food: false,
+  includes_drinks: true,
+  starts_at: '2017-12-11',
+  ends_at: '2017-12-14',
+  active: true,
+  user: luci}])
 
 
 
