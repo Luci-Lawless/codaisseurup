@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-    
+
   end
 
   def update
@@ -33,6 +33,7 @@ class EventsController < ApplicationController
       redirect_to @event, notice: "Event successfully updated"
     else
       render :edit
+      
     end
   end
 
