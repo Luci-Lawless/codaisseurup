@@ -26,6 +26,10 @@
     <!-- Status -->
     <h4>Status</h4>
     <p><%= !@event.active ? ("<del>Unpiublished</del>").html_safe : "Published" %></p>
+    <h4>Categories</h4>
+    <% @event.categories.each do |category| %>
+      <span class="label label-success"><%= category.name %></span>
+    <% end %>
   </div>
 
 </div>

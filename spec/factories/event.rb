@@ -7,7 +7,7 @@ FactoryGirl.define do
     user              { build(:user) }
     includes_food     true
     includes_drinks   true
-    #capacity 16_000
+    # capacity 16_000
     # starts_at '2017-12-11',
     # ends_at '2017-12-14'
 

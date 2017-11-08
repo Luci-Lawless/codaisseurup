@@ -1,5 +1,6 @@
 Event.destroy_all
 User.destroy_all
+Category.destroy_all
 
 #Users
 
@@ -12,6 +13,10 @@ nina = User.create!(
   email: 'nina@gmail.com',
   password: '123456'
 )
+#Categories
+music = Category.create(name: "Music")
+sports = Category.create(name: "Sports")
+games = Category.create(name: "Games")
 
 #Events
 
@@ -26,18 +31,24 @@ events = Event.create!([{
   starts_at: '2017-12-11',
   ends_at: '2017-12-14',
   active: true,
-  user: luci}, {
-  name: "Hellfest",
-  description: "Extreme metal festival.",
-  location: "Clisson, France",
-  price: 200,
-  capacity: 16_000,
-  includes_food: false,
-  includes_drinks: true,
-  starts_at: '2017-12-11',
-  ends_at: '2017-12-14',
-  active: true,
-  user: luci}])
+  user: luci,
+  categories: [sports] },
+  {
+    name: "Hellfest",
+    description: "Extreme metal festival.",
+    location: "Clisson, France",
+    price: 200,
+    capacity: 16_000,
+    includes_food: false,
+    includes_drinks: true,
+    starts_at: '2017-12-11',
+    ends_at: '2017-12-14',
+    active: true,
+    user: luci,
+    categories: [music, games] 
+  }])
+
+
 
 
 

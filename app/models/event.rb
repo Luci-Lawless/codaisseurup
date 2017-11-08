@@ -1,15 +1,21 @@
 class Event < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :categories
 
   validates :name, presence: true
   validates :description, presence: true, length: { maximum: 500 }
   validates :starts_at, presence: true
-
-  # before_validation :ensure_end_date_after_start_date
-  # private
-  #   def ensure_end_date_after_start_date
-  #     if end_at < start_at
-  #       errors.add :end_at, "Must be after start date"
+  # validate :you_are_planning_the_past
+  #
+  #  def you_are_planning_the_past
+  #     if startdate_before_enddate?
+  #       true
+  #     else
+  #       errors.add(:ends_at, “End Date must be at least a day later than start date.“)
   #     end
+  #   end
+  #
+  #   def startdate_before_enddate?
+  #     ends_at - starts_at >= 1
   #   end
 end
