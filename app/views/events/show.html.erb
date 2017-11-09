@@ -26,6 +26,13 @@
     <!-- Status -->
     <h4>Status</h4>
     <p><%= !@event.active ? ("<del>Unpiublished</del>").html_safe : "Published" %></p>
+
+    <!-- Photos -->
+    <h4>Photos</h4>
+    <% @event.photos.each do |photo| %>
+      <%= image_tag photo.image %>
+    <% end %>
+
     <h4>Categories</h4>
     <% @event.categories.each do |category| %>
       <span class="label label-success"><%= category.name %></span>

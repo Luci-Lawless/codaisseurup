@@ -1,4 +1,6 @@
+Photo.destroy_all
 Event.destroy_all
+Profile.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -45,10 +47,14 @@ events = Event.create!([{
     ends_at: '2017-12-14',
     active: true,
     user: luci,
-    categories: [music, games] 
+    categories: [music, games]
   }])
 
-
+#Photos
+# Photos
+photo1 = Photo.create!(remote_image_url: "http://res.cloudinary.com/di7m4tijz/image/upload/v1510230806/Poster-UFC-China-Anderson-Silva-Kelvin-Gastelum-620x895_hmjcvv.jpg", event: Event.first)
+# Photos
+photo2 = Photo.create!(remote_image_url: "http://res.cloudinary.com/di7m4tijz/image/upload/v1510230806/7e8abec7d5b5e3c58dc4cd1127a640e7--hard-rock-realm_gq3osg.jpg", event: Event.last)
 
 
 
