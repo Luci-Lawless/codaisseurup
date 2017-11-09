@@ -1,3 +1,5 @@
 class CategoriesController < ApplicationController
-   @categories = @event.categories
+  def index
+    @categories = @event.categories
+  end
 end
