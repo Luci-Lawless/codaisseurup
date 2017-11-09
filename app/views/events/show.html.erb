@@ -28,17 +28,23 @@
     <p><%= !@event.active ? ("<del>Unpiublished</del>").html_safe : "Published" %></p>
 
     <!-- Photos -->
-    <h4>Photos</h4>
+    <!-- <h4>Photos</h4>
     <% @event.photos.each do |photo| %>
       <%= image_tag photo.image %>
-    <% end %>
+    <% end %> -->
+    <!-- List of Photos -->
+    <div id="photos">
+      <%= render 'photos/list' %>
+    </div>
 
     <h4>Categories</h4>
     <% @event.categories.each do |category| %>
       <span class="label label-success"><%= category.name %></span>
+      <br /><br /><br />
     <% end %>
+
+    <div class="actions">
+      <%= link_to "Back", events_path, class: "btn btn-default" %>
+    </div>
   </div>
-
 </div>
-
-<%= link_to "Back", events_path, class: "btn btn-default" %>
