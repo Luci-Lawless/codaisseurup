@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :events
   has_one :profile
 
+  has_many :attendances, dependent: :destroy
+  has_many :attended_events, through: :attendances, source: :event
+
   def has_profile?
     profile.present? && profile.persisted?
   end
